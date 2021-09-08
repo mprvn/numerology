@@ -1,0 +1,79 @@
+<!doctype>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div>
+<label> Enter the name : <input id="name" type="text"></label>
+<button  onclick="numerology()"> check </button>
+
+Numerology count for name : 
+<div id="resultdiv">
+
+</div>
+</div>
+</body>
+
+<script>
+var myMap = new Map();
+myMap.set("a",1);
+myMap.set("i",1);
+myMap.set("j",1);
+myMap.set("q",1);
+myMap.set("y",1);
+
+myMap.set("b",2);
+myMap.set("k",2);
+myMap.set("r",2);
+
+myMap.set("c",3);
+myMap.set("g",3);
+myMap.set("l",3);
+myMap.set("s",3);
+
+myMap.set("d",4);
+myMap.set("m",4);
+myMap.set("t",4);
+
+myMap.set("e",5);
+myMap.set("n",5);
+myMap.set("h",5);
+myMap.set("x",5);
+
+myMap.set("u",6);
+myMap.set("v",6);
+myMap.set("w",6);
+
+
+myMap.set("o",7);
+myMap.set("z",7);
+
+myMap.set("f",8);
+myMap.set("p",8);
+function numerology(){
+var str = $("#name").val();
+var total= 0;
+for (var i = 0; i < str.length; ++i) {
+	if(str.charAt(i)) {
+		var chr = myMap.get(str.charAt(i).toLowerCase());
+		 total = total + parseInt(chr);
+		 }
+	}
+	var sumstr = ""+total
+	console.log(str + " "+total);
+	var output = 0;
+	for (var i = 0; i < sumstr.length; ++i) {
+	if(sumstr.charAt(i)) {
+		var temp = sumstr.charAt(i);
+		 output = output + parseInt(temp);
+		 }
+	}
+	
+$("#resultdiv").append("<span>" +str + " <total> "+ total +" "+ output+" </span ><br>");
+
+}
+</script>
+</html>
